@@ -29,14 +29,13 @@ class App extends Component {
       acc[pokemon.id] = favoritePokemonIds.includes(pokemon.id);
       return acc;
     }, {});
-
     return isPokemonFavorite;
   }
 
   render() {
     const { isPokemonFavoriteById } = this.state;
     const favoritePokemon = pokemonList.filter(({ id }) => isPokemonFavoriteById[id]);
-
+    
     return (
       <div className="App">
         <h1>Pokédex</h1>
