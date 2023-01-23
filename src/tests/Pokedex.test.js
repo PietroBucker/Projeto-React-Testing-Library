@@ -61,10 +61,11 @@ describe('Teste o componente <Pokedex.js />', () => {
   });
 
   test('A partir da seleção de um botão de tipo, a Pokédex deve circular somente pelos Pokémon daquele tipo', () => {
-    <Pokedex
+    renderWithRouter(<Pokedex
       pokemonList={ pokemonList }
       isPokemonFavoriteById={ isPokemonFavoriteById }
-    />;
+    />);
+
     const fireButton = screen.getByRole('button', { name: /fire/i });
     const nextPokemon = screen.getByRole('button', { name: /próximo pokémon/i });
     const allPokemons = screen.getByRole('button', { name: /all/i });

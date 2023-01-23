@@ -11,7 +11,6 @@ class Pokemon extends React.Component {
     const { pokemon, showDetailsLink, isFavorite } = this.props;
     const { averageWeight, id, image, name, type } = pokemon;
     const { measurementUnit, value } = averageWeight;
-
     return (
       <div className="pokemon">
         <div className="pokemon-overview">
