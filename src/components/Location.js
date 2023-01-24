@@ -8,7 +8,7 @@ export default class Location extends Component {
   render() {
     return (
       <div>
-        {}
+        {}fdfasfdsf
       </div>
     )
   }
