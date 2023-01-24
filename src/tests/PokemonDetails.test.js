@@ -3,10 +3,12 @@ import { screen } from '@testing-library/react';
 import renderWithRouter from '../renderWithRouter';
 import App from '../App';
 
+const moreDetails = 'More details';
+
 describe('Teste o componente <PokemonDetails.js />', () => {
   test('Teste se as informações detalhadas do Pokémon selecionado são mostradas na tela:', () => {
     renderWithRouter(<App />);
-    const btnDetails = screen.getByRole('link', { name: 'More details' });
+    const btnDetails = screen.getByRole('link', { name: moreDetails });
     userEvent.click(btnDetails);
     const titleSumary = screen.getByRole('heading', { name: 'Summary', level: 2 });
     expect(btnDetails).not.toBeInTheDocument();
@@ -21,7 +23,7 @@ describe('Teste o componente <PokemonDetails.js />', () => {
 
   test('Teste se existe na página uma seção com os mapas contendo as localizações do Pokémon:', () => {
     renderWithRouter(<App />);
-    const btnDetails = screen.getByRole('link', { name: 'More details' });
+    const btnDetails = screen.getByRole('link', { name: moreDetails });
     userEvent.click(btnDetails);
     const title = screen.getByRole('heading', { name: /pikachu details/i, level: 2 });
     const titleSumary = screen.getByRole('heading', { name: /Game Locations of/i, level: 2 });
@@ -39,7 +41,7 @@ describe('Teste o componente <PokemonDetails.js />', () => {
 
   test('verifica se nao estiver nenhum pokemon favoritado retorna No favorite Pokémon found na tela', () => {
     renderWithRouter(<App />);
-    const btnDetails = screen.getByRole('link', { name: 'More details' });
+    const btnDetails = screen.getByRole('link', { name: moreDetails });
     userEvent.click(btnDetails);
 
     const btnFav = screen.getByRole('checkbox');
