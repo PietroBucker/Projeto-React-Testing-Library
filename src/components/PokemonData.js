@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { pokemonType } from '../types';
+import { Link } from 'react-router-dom';
 
 class PokemonData extends Component {
   render() {
@@ -14,6 +15,7 @@ class PokemonData extends Component {
         </section>
         <section>
           <h2>{ `Game Locations of ${name}` }</h2>
+          {/* <Link className="link" to="/location">{`Location`}</Link> */}
           <div className="pokemon-habitat">
             { foundAt.map(({ location, map }) => (
               <div key={ location }>

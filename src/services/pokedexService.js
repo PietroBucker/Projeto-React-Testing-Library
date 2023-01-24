@@ -23,3 +23,9 @@ const removePokemonFromFavorites = (pokemonId) => {
 export const updateFavoritePokemon = (pokemonId, isFavorite) => (
   isFavorite ? addPokemonToFavorites(pokemonId) : removePokemonFromFavorites(pokemonId)
 );
+
+export const requiredApiLocation = async (id) => {
+  const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}/encounters`)
+  const data = await response.json();
+  return data;
+}

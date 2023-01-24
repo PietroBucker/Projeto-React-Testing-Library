@@ -10,6 +10,7 @@ import {
   Pokedex,
   PokemonDetails,
 } from '../pages';
+import Location from '../components/Location';
 
 class Routes extends Component {
   render() {
@@ -44,6 +45,7 @@ class Routes extends Component {
           render={ () => <FavoritePokemon pokemonList={ favoritePokemon } /> }
         />
         <Route path="/about" component={ About } />
+        <Route path="/location" component={ Location } />
         <Route component={ NotFound } />
       </Switch>
     );

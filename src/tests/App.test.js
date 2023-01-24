@@ -44,10 +44,19 @@ describe('Teste se o topo da aplicação contém um conjunto fixo de links de na
   });
 
   test('Teste se a aplicação é redirecionada para a página de Pokémon Favoritados, na URL /favorites, ao clicar no link Favorite Pokémon da barra de navegação;', () => {
-    const linkDatail = screen.getByRole('link', { name: favoritePokemon });
+    const linkDatail = screen.getByRole('link', { name: 'More details' });
     userEvent.click(linkDatail);
+
+    const checkBox = screen.getByRole('checkbox');
+    userEvent.click(checkBox);
+
+    const linkFav = screen.getByRole('link', { name: 'Favorite Pokémon' });
+    userEvent.click(linkFav);
+
     const title = screen.getByRole('heading', { name: favoritePokemon, level: 2 });
+    const pokeName = screen.getByTestId('pokemon-name');
     expect(title).toBeInTheDocument();
+    expect(pokeName).toHaveTextContent(/pikachu/i);
   });
 
   test('Teste se a aplicação é redirecionada para a página Not Found ao entrar em uma URL desconhecida.', () => {

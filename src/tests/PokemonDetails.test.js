@@ -35,6 +35,20 @@ describe('Teste o componente <PokemonDetails.js />', () => {
     expect(imgLocation[1]).toHaveAttribute('src', 'https://archives.bulbagarden.net/media/upload/b/bd/Kanto_Celadon_City_Map.png');
     expect(nameLocation1).toBeInTheDocument();
     expect(nameLocation2).toBeInTheDocument();
-    console.log(imgLocation);
+  });
+
+  test('verifica se nao estiver nenhum pokemon favoritado retorna No favorite Pokémon found na tela', () => {
+    renderWithRouter(<App />);
+    const btnDetails = screen.getByRole('link', { name: 'More details' });
+    userEvent.click(btnDetails);
+
+    const btnFav = screen.getByRole('checkbox');
+    userEvent.click(btnFav);
+    expect(btnFav).not.toBeChecked();
+
+    const linkFav = screen.getByRole('link', { name: 'Favorite Pokémon' });
+    userEvent.click(linkFav);
+    const noFound = screen.getByText('No favorite Pokémon found');
+    expect(noFound).toBeDefined();
   });
 });
